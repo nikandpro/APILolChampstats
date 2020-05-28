@@ -3,8 +3,8 @@ package com.github.lol.nikandpro.model.Core.rune;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "generalRunes")
-public class GeneralRunes {
+@DatabaseTable(tableName = "secondaryRuneTree")
+public class SecondaryRuneTree {
     @DatabaseField(columnName = "displayName")
     private String displayName;
     @DatabaseField(id =true, columnName = "id")
@@ -14,7 +14,7 @@ public class GeneralRunes {
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
 
-    public GeneralRunes() {}
+    public SecondaryRuneTree() {}
 
     public String getDisplayName() {
         return displayName;

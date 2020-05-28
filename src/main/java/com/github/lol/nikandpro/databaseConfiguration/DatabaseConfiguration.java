@@ -1,6 +1,13 @@
 package com.github.lol.nikandpro.databaseConfiguration;
 
-import com.github.lol.nikandpro.model.ActivPlayer.Player;
+import com.github.lol.nikandpro.model.ActivPlayer.*;
+import com.github.lol.nikandpro.model.Core.abilities.*;
+import com.github.lol.nikandpro.model.Core.rune.GeneralRunes;
+import com.github.lol.nikandpro.model.Core.rune.Keystone;
+import com.github.lol.nikandpro.model.Core.rune.PrimaryRuneTree;
+import com.github.lol.nikandpro.model.Core.rune.SecondaryRuneTree;
+import com.github.lol.nikandpro.model.game.Game;
+import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
@@ -12,16 +19,56 @@ import java.sql.SQLException;
 public class DatabaseConfiguration {
 
     public static ConnectionSource connectionSource;
+    public static Dao<AbilitiesActivPlayer, Integer> abilActPlayerDao;
+    public static Dao<Activeplayer, Integer> actPlayerDao;
+    public static Dao<ChampionStats, Integer> champStatsDao;
     public static Dao<Player, Integer> playerDao;
+    public static Dao<PlayerItem, Integer> playerItemDao;
+    public static Dao<PlayerSummonerSpell, Integer> playerSummonerDao;
+    public static Dao<RuneActicPlayer, Integer> runeActPlayerDao;
+    public static Dao<RunePlayer, Integer> runePlayerDao;
+    public static Dao<Scores, Integer> scoresDao;
+    public static Dao<E, Integer> eDao;
+    public static Dao<Passive, Integer> passiveDao;
+    public static Dao<Q, Integer> qDao;
+    public static Dao<R, Integer> rDao;
+    public static Dao<W, Integer> wDao;
+    public static Dao<GeneralRunes, Integer> genRuneDao;
+    public static Dao<Keystone, Integer> keystoneDao;
+    public static Dao<PrimaryRuneTree, Integer> primaryRuneTreeDao;
+    public static Dao<SecondaryRuneTree, Integer> secondaryRuneTreeDao;
+    public static Dao<Game, Integer> gameDao;
+    public static Dao<TimePoint, Integer> timePointDao;
+
 
     static {
         try {
-            connectionSource = new JdbcConnectionSource("jdbc:sqlite:C:\\Users\\User\\Desktop\\Project lol\\БД\\LolUserDB.db");
+            connectionSource = new JdbcConnectionSource("\"jdbc:sqlite:C:\\\\Users\\\\User\\\\Desktop\\\\Project lol\\\\БД\\\\LolUserDB.db\"");
+            TableUtils.createTableIfNotExists(connectionSource, AbilitiesActivPlayer.class);
+            TableUtils.createTableIfNotExists(connectionSource, Activeplayer.class);
+            TableUtils.createTableIfNotExists(connectionSource, ChampionStats.class);
             TableUtils.createTableIfNotExists(connectionSource, Player.class);
+            TableUtils.createTableIfNotExists(connectionSource, PlayerItem.class);
+            TableUtils.createTableIfNotExists(connectionSource, PlayerSummonerSpell.class);
+            TableUtils.createTableIfNotExists(connectionSource, RuneActicPlayer.class);
+            TableUtils.createTableIfNotExists(connectionSource, RunePlayer.class);
+            TableUtils.createTableIfNotExists(connectionSource, Scores.class);
+            TableUtils.createTableIfNotExists(connectionSource, E.class);
+            TableUtils.createTableIfNotExists(connectionSource, Passive.class);
+            TableUtils.createTableIfNotExists(connectionSource, Q.class);
+            TableUtils.createTableIfNotExists(connectionSource, R.class);
+            TableUtils.createTableIfNotExists(connectionSource, W.class);
+            TableUtils.createTableIfNotExists(connectionSource, GeneralRunes.class);
+            TableUtils.createTableIfNotExists(connectionSource, Keystone.class);
+            TableUtils.createTableIfNotExists(connectionSource, PrimaryRuneTree.class);
+            TableUtils.createTableIfNotExists(connectionSource, SecondaryRuneTree.class);
+            TableUtils.createTableIfNotExists(connectionSource, Game.class);
+            TableUtils.createTableIfNotExists(connectionSource, TimePoint.class);
 
+            abilActPlayerDao = DaoManager.createDao(connectionSource, AbilitiesActivPlayer.class);
             playerDao = DaoManager.createDao(connectionSource, Player.class);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
