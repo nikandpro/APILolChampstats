@@ -8,8 +8,8 @@ import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "runes")
-public class RunePlayer {
+@DatabaseTable(tableName = "fullRunes")
+public class RuneActivPlayer {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
@@ -20,10 +20,10 @@ public class RunePlayer {
     private PrimaryRuneTree primaryRuneTree;
     @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
     private SecondaryRuneTree secondaryRuneTree;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
-    private Player player;
+    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
+    private Activeplayer activeplayer;
 
-    public RunePlayer() {}
+    public RuneActivPlayer() {}
 
     public int getId() {
         return id;
@@ -65,11 +65,11 @@ public class RunePlayer {
         this.secondaryRuneTree = secondaryRuneTree;
     }
 
-    public Player getPlayer() {
-        return player;
+    public Activeplayer getActiveplayer() {
+        return activeplayer;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setActiveplayer(Activeplayer activeplayer) {
+        this.activeplayer = activeplayer;
     }
 }

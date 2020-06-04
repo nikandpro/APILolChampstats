@@ -1,5 +1,6 @@
 package com.github.lol.nikandpro.model.Core.rune;
 
+import com.github.lol.nikandpro.model.ActivPlayer.RuneActivPlayer;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -13,6 +14,8 @@ public class GeneralRunes {
     private String rawDescription;
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
+    @DatabaseField(columnName = "runeActivPlayer")
+    private RuneActivPlayer runeActicPlayer;
 
     public GeneralRunes() {}
 
@@ -46,5 +49,13 @@ public class GeneralRunes {
 
     public void setRawDisplayName(String rawDisplayName) {
         this.rawDisplayName = rawDisplayName;
+    }
+
+    public RuneActivPlayer getRuneActicPlayer() {
+        return runeActicPlayer;
+    }
+
+    public void setRuneActicPlayer(RuneActivPlayer runeActicPlayer) {
+        this.runeActicPlayer = runeActicPlayer;
     }
 }

@@ -25,7 +25,7 @@ public class DatabaseConfiguration {
     public static Dao<Player, Integer> playerDao;
     public static Dao<PlayerItem, Integer> playerItemDao;
     public static Dao<PlayerSummonerSpell, Integer> playerSummonerDao;
-    public static Dao<RuneActicPlayer, Integer> runeActPlayerDao;
+    public static Dao<RuneActivPlayer, Integer> runeActPlayerDao;
     public static Dao<RunePlayer, Integer> runePlayerDao;
     public static Dao<Scores, Integer> scoresDao;
     public static Dao<E, Integer> eDao;
@@ -50,7 +50,7 @@ public class DatabaseConfiguration {
             TableUtils.createTableIfNotExists(connectionSource, Player.class);
             TableUtils.createTableIfNotExists(connectionSource, PlayerItem.class);
             TableUtils.createTableIfNotExists(connectionSource, PlayerSummonerSpell.class);
-            TableUtils.createTableIfNotExists(connectionSource, RuneActicPlayer.class);
+            TableUtils.createTableIfNotExists(connectionSource, RuneActivPlayer.class);
             TableUtils.createTableIfNotExists(connectionSource, RunePlayer.class);
             TableUtils.createTableIfNotExists(connectionSource, Scores.class);
             TableUtils.createTableIfNotExists(connectionSource, E.class);
@@ -66,7 +66,25 @@ public class DatabaseConfiguration {
             TableUtils.createTableIfNotExists(connectionSource, TimePoint.class);
 
             abilActPlayerDao = DaoManager.createDao(connectionSource, AbilitiesActivPlayer.class);
+            actPlayerDao = DaoManager.createDao(connectionSource, Activeplayer.class);
+            champStatsDao = DaoManager.createDao(connectionSource, ChampionStats.class);
             playerDao = DaoManager.createDao(connectionSource, Player.class);
+            playerItemDao = DaoManager.createDao(connectionSource, PlayerItem.class);
+            playerSummonerDao = DaoManager.createDao(connectionSource, PlayerSummonerSpell.class);
+            runeActPlayerDao = DaoManager.createDao(connectionSource, RuneActivPlayer.class);
+            runePlayerDao = DaoManager.createDao(connectionSource, RunePlayer.class);
+            scoresDao = DaoManager.createDao(connectionSource, Scores.class);
+            eDao = DaoManager.createDao(connectionSource, E.class);
+            passiveDao = DaoManager.createDao(connectionSource, Passive.class);
+            qDao = DaoManager.createDao(connectionSource, Q.class);
+            rDao = DaoManager.createDao(connectionSource, R.class);
+            wDao = DaoManager.createDao(connectionSource, W.class);
+            genRuneDao = DaoManager.createDao(connectionSource, GeneralRunes.class);
+            keystoneDao = DaoManager.createDao(connectionSource, Keystone.class);
+            primaryRuneTreeDao = DaoManager.createDao(connectionSource, PrimaryRuneTree.class);
+            secondaryRuneTreeDao = DaoManager.createDao(connectionSource, SecondaryRuneTree.class);
+            gameDao = DaoManager.createDao(connectionSource, Game.class);
+            timePointDao = DaoManager.createDao(connectionSource, TimePoint.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
