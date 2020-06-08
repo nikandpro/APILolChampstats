@@ -1,11 +1,11 @@
 package com.github.lol.nikandpro.databaseConfiguration;
 
-import com.github.lol.nikandpro.model.ActivPlayer.*;
-import com.github.lol.nikandpro.model.Core.abilities.*;
-import com.github.lol.nikandpro.model.Core.rune.GeneralRunes;
-import com.github.lol.nikandpro.model.Core.rune.Keystone;
-import com.github.lol.nikandpro.model.Core.rune.PrimaryRuneTree;
-import com.github.lol.nikandpro.model.Core.rune.SecondaryRuneTree;
+import com.github.lol.nikandpro.model.activPlayer.*;
+import com.github.lol.nikandpro.model.core.abilities.*;
+import com.github.lol.nikandpro.model.core.rune.GeneralRunes;
+import com.github.lol.nikandpro.model.core.rune.Keystone;
+import com.github.lol.nikandpro.model.core.rune.PrimaryRuneTree;
+import com.github.lol.nikandpro.model.core.rune.SecondaryRuneTree;
 import com.github.lol.nikandpro.model.game.Game;
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.dao.Dao;

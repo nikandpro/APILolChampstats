@@ -1,6 +1,6 @@
-package com.github.lol.nikandpro.model.ActivPlayer;
+package com.github.lol.nikandpro.model.activPlayer;
 
-import com.github.lol.nikandpro.model.Core.SummonerSpell;
+import com.github.lol.nikandpro.model.core.SummonerSpell;
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

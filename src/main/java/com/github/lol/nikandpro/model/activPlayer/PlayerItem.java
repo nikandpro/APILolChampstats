@@ -1,9 +1,9 @@
-package com.github.lol.nikandpro.model.ActivPlayer;
+package com.github.lol.nikandpro.model.activPlayer;
 
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.sun.tools.javac.jvm.Items;
+import com.github.lol.nikandpro.model.core.Item;
 
 @DatabaseTable(tableName = "playerItems")
 public class PlayerItem {
@@ -14,7 +14,7 @@ public class PlayerItem {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "players")
     private Player player;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "items")
-    private Items item;
+    private Item item;
 
     public PlayerItem() {}
 
@@ -42,11 +42,11 @@ public class PlayerItem {
         this.player = player;
     }
 
-    public Items getItem() {
+    public Item getItem() {
         return item;
     }
 
-    public void setItem(Items item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 }

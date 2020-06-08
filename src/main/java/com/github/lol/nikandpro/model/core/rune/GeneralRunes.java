@@ -1,6 +1,6 @@
-package com.github.lol.nikandpro.model.Core.rune;
+package com.github.lol.nikandpro.model.core.rune;
 
-import com.github.lol.nikandpro.model.ActivPlayer.RuneActivPlayer;
+import com.github.lol.nikandpro.model.activPlayer.RuneActivPlayer;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 

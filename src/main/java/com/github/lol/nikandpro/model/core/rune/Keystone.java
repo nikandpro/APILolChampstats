@@ -1,30 +1,20 @@
-package com.github.lol.nikandpro.model.Core.abilities;
+package com.github.lol.nikandpro.model.core.rune;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "W")
-public class W {
-    @DatabaseField(columnName = "abilityLevel")
-    private int abilityLevel;
+@DatabaseTable(tableName = "keystone")
+public class Keystone {
     @DatabaseField(columnName = "displayName")
     private String displayName;
-    @DatabaseField(id = true, columnName = "id_letter_Ability")
-    private String id;
+    @DatabaseField(id =true, columnName = "id")
+    private int id;
     @DatabaseField(columnName = "rawDescription")
     private String rawDescription;
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
 
-    public W() {}
-
-    public int getAbilityLevel() {
-        return abilityLevel;
-    }
-
-    public void setAbilityLevel(int abilityLevel) {
-        this.abilityLevel = abilityLevel;
-    }
+    public Keystone() {}
 
     public String getDisplayName() {
         return displayName;
@@ -34,11 +24,11 @@ public class W {
         this.displayName = displayName;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

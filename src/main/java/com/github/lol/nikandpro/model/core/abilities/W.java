@@ -1,10 +1,10 @@
-package com.github.lol.nikandpro.model.Core.abilities;
+package com.github.lol.nikandpro.model.core.abilities;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Q")
-public class Q {
+@DatabaseTable(tableName = "W")
+public class W {
     @DatabaseField(columnName = "abilityLevel")
     private int abilityLevel;
     @DatabaseField(columnName = "displayName")
@@ -16,7 +16,7 @@ public class Q {
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
 
-    public Q() {}
+    public W() {}
 
     public int getAbilityLevel() {
         return abilityLevel;

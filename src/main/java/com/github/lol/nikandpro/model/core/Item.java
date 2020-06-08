@@ -1,4 +1,4 @@
-package com.github.lol.nikandpro.model.Core;
+package com.github.lol.nikandpro.model.core;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

@@ -1,4 +1,4 @@
-package com.github.lol.nikandpro.model.ActivPlayer;
+package com.github.lol.nikandpro.model.activPlayer;
 
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;

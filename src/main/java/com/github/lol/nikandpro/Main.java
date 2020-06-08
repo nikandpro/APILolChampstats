@@ -1,15 +1,11 @@
 package com.github.lol.nikandpro;
 
+import com.github.lol.nikandpro.model.apiLol.UrlCONST;
+import com.github.lol.nikandpro.model.apiLol.UrlRequest;
+
 public class Main {
     public static void main(String[] args) {
-        /*boolean startgame=false;
-        String sumonName;
-
-        while (!startgame) {
-            checkgame(sumonName);
-            delay(1000);
-        }
-        lookgame;*/
+        UrlRequest.getJson();
 
     }
 

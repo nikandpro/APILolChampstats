@@ -1,15 +1,14 @@
-package com.github.lol.nikandpro.model.ActivPlayer;
+package com.github.lol.nikandpro.model.activPlayer;
 
-import com.github.lol.nikandpro.model.Core.rune.GeneralRunes;
-import com.github.lol.nikandpro.model.Core.rune.Keystone;
-import com.github.lol.nikandpro.model.Core.rune.PrimaryRuneTree;
-import com.github.lol.nikandpro.model.Core.rune.SecondaryRuneTree;
+import com.github.lol.nikandpro.model.core.rune.Keystone;
+import com.github.lol.nikandpro.model.core.rune.PrimaryRuneTree;
+import com.github.lol.nikandpro.model.core.rune.SecondaryRuneTree;
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "fullRunes")
-public class RuneActivPlayer {
+@DatabaseTable(tableName = "runes")
+public class RunePlayer {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
@@ -20,10 +19,10 @@ public class RuneActivPlayer {
     private PrimaryRuneTree primaryRuneTree;
     @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
     private SecondaryRuneTree secondaryRuneTree;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
-    private Activeplayer activeplayer;
+    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
+    private Player player;
 
-    public RuneActivPlayer() {}
+    public RunePlayer() {}
 
     public int getId() {
         return id;
@@ -65,11 +64,11 @@ public class RuneActivPlayer {
         this.secondaryRuneTree = secondaryRuneTree;
     }
 
-    public Activeplayer getActiveplayer() {
-        return activeplayer;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setActiveplayer(Activeplayer activeplayer) {
-        this.activeplayer = activeplayer;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
