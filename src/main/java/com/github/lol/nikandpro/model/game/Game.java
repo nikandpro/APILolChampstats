@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "game")
 public class Game {
     @DatabaseField(id = true, columnName = "id")
-    private int id;
+    private long id;
     @DatabaseField(columnName = "gameStatus")
     private String gameStatus;
     @DatabaseField(columnName = "gameMode")
@@ -14,11 +14,11 @@ public class Game {
 
     public Game() {}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

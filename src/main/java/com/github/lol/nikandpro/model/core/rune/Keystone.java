@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "keystone")
-public class Keystone {
+public class Keystone implements Rune {
     @DatabaseField(columnName = "displayName")
     private String displayName;
     @DatabaseField(id =true, columnName = "id")
