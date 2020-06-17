@@ -17,15 +17,16 @@ public class UrlRequest {
     public static void getJsonActiv() throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
-
-            HttpGet request = new HttpGet("https://ru.api.riotgames.com/lol/summoner/v4/summoners/by-name/NullDeath?api_key=RGAPI-169eefbc-f15f-4e63-99e9-a25689abba2f");
-
-            // add request headers
+            System.out.println("1");
+            HttpGet request = new HttpGet("https://ru.api.riotgames.com/lol/summoner/v4/summoners/by-name/NullDeath?api_key=RGAPI-18f6df9a-5dc0-422f-802e-ff15fcd50add");
+            System.out.println("2");
+            //add request headers
             //request.addHeader("custom-key", "mkyong");
             //request.addHeader(HttpHeaders.USER_AGENT, "Googlebot");
 
+            System.out.println("3");
             CloseableHttpResponse response = httpClient.execute(request);
-
+            System.out.println("4");
             try {
 
                 // Get HttpResponse Status
