@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Passive")
-public class Passive {
+public class Passive implements Abil {
     @DatabaseField(columnName = "displayName")
     private String displayName;
     @DatabaseField(id = true, columnName = "id_letter_Ability")

@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "E")
-public class E {
+public class E implements Abil {
 
     @DatabaseField(columnName = "abilityLevel")
     private int abilityLevel;
