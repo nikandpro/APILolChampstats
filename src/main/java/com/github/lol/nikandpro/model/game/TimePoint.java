@@ -7,7 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class TimePoint {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
-    @DatabaseField(columnName = "game")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "game")
     private Game game;
     @DatabaseField(columnName = "timeGame")
     private float timeGame;

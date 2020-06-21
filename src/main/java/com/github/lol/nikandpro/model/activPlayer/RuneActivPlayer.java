@@ -13,13 +13,13 @@ public class RuneActivPlayer {
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "keystone")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "keystone")
     private Keystone keystone;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
     private PrimaryRuneTree primaryRuneTree;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
     private SecondaryRuneTree secondaryRuneTree;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
     private Activeplayer activeplayer;
 
     public RuneActivPlayer() {}

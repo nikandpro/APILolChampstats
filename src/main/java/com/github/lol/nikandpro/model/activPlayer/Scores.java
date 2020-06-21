@@ -8,8 +8,8 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Scores {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
-    private TimePoint timePoint;
+    //@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
+    //private TimePoint timePoint;
     @DatabaseField(columnName = "assists")
     private int assists;
     @DatabaseField(columnName = "creepScore")
@@ -20,18 +20,26 @@ public class Scores {
     private int kill;
     @DatabaseField(columnName = "wardScore")
     private float wardScore;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
     private Player player;
 
     public Scores() {}
 
-    public TimePoint getTimePoint() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /*public TimePoint getTimePoint() {
         return timePoint;
     }
 
     public void setTimePoint(TimePoint timePoint) {
         this.timePoint = timePoint;
-    }
+    }*/
 
     public int getAssists() {
         return assists;

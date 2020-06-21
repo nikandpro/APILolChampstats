@@ -13,15 +13,15 @@ public class AbilitiesActivPlayer {
     private TimePoint timePoint;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
     private Player player;
-    @DatabaseField(columnName = "E")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "E")
     private E e;
-    @DatabaseField(columnName = "passive")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "passive")
     private Passive passive;
-    @DatabaseField(columnName = "Q")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "Q")
     private Q q;
-    @DatabaseField(columnName = "R")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "R")
     private R r;
-    @DatabaseField(columnName = "W")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "W")
     private W w;
 
     public AbilitiesActivPlayer() {

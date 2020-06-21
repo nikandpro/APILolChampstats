@@ -1,11 +1,10 @@
-package com.github.lol.nikandpro.Deserialize;
+package com.github.lol.nikandpro.deserialize.modelDeserialize;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.github.lol.nikandpro.model.activPlayer.AbilitiesActivPlayer;
-import com.github.lol.nikandpro.model.apiLol.liveClient.UrlRequest;
 
 import java.io.IOException;
 

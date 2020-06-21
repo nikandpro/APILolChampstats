@@ -1,17 +1,5 @@
 package com.github.lol.nikandpro.Client;
 
 public class Key {
-    private String key;
-
-    public Key(String key) {
-        this.key = key;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
+    public static String api_key="RGAPI-df301658-f84d-45a8-b544-b0919fc3f0e6";
 }

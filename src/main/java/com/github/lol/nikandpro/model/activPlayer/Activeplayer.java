@@ -10,7 +10,7 @@ public class Activeplayer {
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
-    @DatabaseField(columnName = "championStats")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "championStats")
     private ChampionStats championStats;
     @DatabaseField(columnName = "currentGold")
     private float currentGold;

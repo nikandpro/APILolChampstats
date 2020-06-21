@@ -22,9 +22,7 @@ public class Player {
     private String position;
     @DatabaseField(columnName = "rawChampionName")
     private String rawChampionName;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "scores")
-    private Scores scores;
-    @DatabaseField(generatedId = true, columnName = "summonerName")
+    @DatabaseField(columnName = "summonerName")
     private String summonerName;
 
     public Player() {}
@@ -91,14 +89,6 @@ public class Player {
 
     public void setRawChampionName(String rawChampionName) {
         this.rawChampionName = rawChampionName;
-    }
-
-    public Scores getScores() {
-        return scores;
-    }
-
-    public void setScores(Scores scores) {
-        this.scores = scores;
     }
 
     public String getSummonerName() {

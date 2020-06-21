@@ -8,7 +8,7 @@ public class Game {
     @DatabaseField(id = true, columnName = "id")
     private long id;
     @DatabaseField(columnName = "gameStatus")
-    private String gameStatus;
+    private GameStatus gameStatus;
     @DatabaseField(columnName = "gameMode")
     private String gameMode;
 
@@ -22,11 +22,11 @@ public class Game {
         this.id = id;
     }
 
-    public String getGameStatus() {
+    public GameStatus getGameStatus() {
         return gameStatus;
     }
 
-    public void setGameStatus(String gameStatus) {
+    public void setGameStatus(GameStatus gameStatus) {
         this.gameStatus = gameStatus;
     }
 

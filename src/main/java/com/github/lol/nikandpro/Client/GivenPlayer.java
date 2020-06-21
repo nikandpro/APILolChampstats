@@ -1,6 +1,6 @@
-package com.github.lol.nikandpro.model.game;
+package com.github.lol.nikandpro.Client;
 
-import com.github.lol.nikandpro.Client.Region;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -8,12 +8,14 @@ import com.j256.ormlite.table.DatabaseTable;
 public class GivenPlayer {
     @DatabaseField(id = true, columnName = "id")
     private String id;
-    @DatabaseField(id = true, columnName = "accountID")
-    private String accountId;
+    @DatabaseField(columnName = "summonerLevel")
+    private int summonerLevel;
     @DatabaseField(columnName = "name")
     private String name;
     @DatabaseField(columnName = "region")
     private Region region;
+
+    public static Region staticRegion;
 
     public GivenPlayer() {}
 
@@ -25,12 +27,12 @@ public class GivenPlayer {
         this.id = id;
     }
 
-    public String getAccountId() {
-        return accountId;
+    public int getSummonerLevel() {
+        return summonerLevel;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setSummonerLevel(int summonerLevel) {
+        this.summonerLevel = summonerLevel;
     }
 
     public String getName() {
@@ -39,5 +41,13 @@ public class GivenPlayer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 }

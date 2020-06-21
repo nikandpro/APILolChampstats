@@ -14,7 +14,7 @@ public class GeneralRunes implements Rune {
     private String rawDescription;
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
-    @DatabaseField(columnName = "runeActivPlayer")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "runeActivPlayer")
     private RuneActivPlayer runeActicPlayer;
 
     public GeneralRunes() {}

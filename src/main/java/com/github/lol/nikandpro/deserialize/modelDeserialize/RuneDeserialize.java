@@ -1,4 +1,4 @@
-package com.github.lol.nikandpro.Deserialize;
+package com.github.lol.nikandpro.deserialize.modelDeserialize;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

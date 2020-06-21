@@ -11,9 +11,9 @@ public class PlayerSummonerSpell {
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "summonerSpell1")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "summonerSpell1")
     private SummonerSpell summonerSpell1;
-    @DatabaseField(foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "summonerSpell2")
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "summonerSpell2")
     private SummonerSpell summonerSpell2;
 
     public PlayerSummonerSpell() {}

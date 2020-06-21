@@ -1,18 +1,16 @@
 package com.github.lol.nikandpro;
 
-import com.github.lol.nikandpro.model.apiLol.liveClient.UrlRequest;
-import com.github.lol.nikandpro.model.game.GivenPlayer;
+import com.github.lol.nikandpro.Client.Play;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        //Scanner sc = new Scanner(System.in);
-        //GivenPlayer givenPlayer = new GivenPlayer();
-        //givenPlayer.setName(sc.nextLine());
-        UrlRequest.getJsonActiv();
+    public static void main(String[] args) throws IOException, SQLException, InterruptedException {
+        Play play = new Play();
+        play.gamePlay();
+
 
 
     }
