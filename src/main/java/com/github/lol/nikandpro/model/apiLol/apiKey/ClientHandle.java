@@ -19,34 +19,36 @@ import java.sql.SQLException;
 
 public class ClientHandle {
 
-    public static GivenPlayer seeId(GivenPlayer givenPlayer) throws IOException, SQLException {
+    public static GivenPlayer seeID(GivenPlayer givenPlayer) throws IOException, SQLException {
         ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(GivenPlayer.class);
-        System.out.println("seeid1");
-        givenPlayer = obMap.readValue(getJsonClient(ClientCONST.SUMMONER, givenPlayer), GivenPlayer.class);
-        System.out.println("seeid2");
+        System.out.println("startSeeID");
+        givenPlayer = obMap.readValue(getJsonClient(ClientCONST.SUMMONER, givenPlayer, givenPlayer.getName()), GivenPlayer.class);
+        System.out.println("successRecordGivenPlayer");
         if (!checkDB(givenPlayer.getId())) {
             System.out.println("noInDB");
             DatabaseConfiguration.givenPlayerDao.create(givenPlayer);
-        }
+        } else System.out.println("haveInDB");
         System.out.println(givenPlayer.getId());
-        System.out.println("seeid3");
+        System.out.println("finishedSeeID");
         return givenPlayer;
     }
 
     public static Game gameStart(Game game, GivenPlayer givenPlayer) throws IOException, SQLException {
         ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(Game.class);
-        System.out.println("gameStartd1");
-        game = obMap.readValue(getJsonClient(ClientCONST.SPECTATOR, givenPlayer), Game.class);
-        System.out.println("gameStartd2");
+        System.out.println("gameStart");
+        game = obMap.readValue(getJsonClient(ClientCONST.SPECTATOR, givenPlayer, givenPlayer.getId()), Game.class);
+        System.out.println("successRecordGameStart");
         DatabaseConfiguration.gameDao.create(game);
-        System.out.println("gameStartd3");
+        System.out.println("finishedGameStart");
         return game;
     }
 
-    public static String  getJsonClient(String url, GivenPlayer givenPlayer) throws IOException {
+    public static String  getJsonClient(String url, GivenPlayer givenPlayer, String value) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
-            HttpGet request = new HttpGet(link(givenPlayer.getRegion(), url, givenPlayer.getName()));
+            String json1 = link(givenPlayer.getRegion(), url, value);
+            System.out.println(json1);
+            HttpGet request = new HttpGet(json1);
             CloseableHttpResponse response = httpClient.execute(request);
 
             try {
@@ -86,7 +88,7 @@ public class ClientHandle {
                     return true;
                 } if (response.getStatusLine().getStatusCode()==404)  {
                     return false;
-                } if (response.getStatusLine().getStatusCode()==401)  {
+                } if (response.getStatusLine().getStatusCode()==403)  {
                     System.out.println("error Key");
                     throw new RuntimeException();
                 } else {
@@ -115,6 +117,8 @@ public class ClientHandle {
         System.out.println(bol);
         return bol;
     }
+
+
 
     private static String link(Region region, String clientCONST, String name) {
         return "https://"+region+clientCONST+name+"?api_key=" + Key.api_key;

@@ -1,5 +1,6 @@
 package com.github.lol.nikandpro.model.game;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -9,8 +10,16 @@ public class TimePoint {
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "game")
     private Game game;
-    @DatabaseField(columnName = "timeGame")
-    private float timeGame;
+    @DatabaseField(columnName = "gameTime")
+    private double gameTime;
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String gameMode;
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String mapName;
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String mapNumber;
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String mapTerrain;
 
     public TimePoint() {}
 
@@ -30,11 +39,11 @@ public class TimePoint {
         this.game = game;
     }
 
-    public float getTimeGame() {
-        return timeGame;
+    public double getGameTime() {
+        return gameTime;
     }
 
-    public void setTimeGame(float timeGame) {
-        this.timeGame = timeGame;
+    public void setGameTime(double gameTime) {
+        this.gameTime = gameTime;
     }
 }

@@ -18,14 +18,11 @@ public class GivenplayerDeserialize extends StdDeserializer<GivenPlayer> {
 
     @Override
     public GivenPlayer deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        System.out.println("des1");
         GivenPlayer givenPlayer = new GivenPlayer();
         JsonNode node = parser.getCodec().readTree(parser);
-        System.out.println("des2");
         givenPlayer.setId(node.get("id").asText());
         givenPlayer.setName(node.get("name").asText());
         givenPlayer.setSummonerLevel(node.get("summonerLevel").asInt());
-        System.out.println("des3");
         givenPlayer.setRegion(GivenPlayer.staticRegion);
         return givenPlayer;
     }
