@@ -7,6 +7,7 @@ import com.github.lol.nikandpro.Client.GivenPlayer;
 import com.github.lol.nikandpro.ObjectMapperFactory;
 import com.github.lol.nikandpro.databaseConfiguration.DatabaseConfiguration;
 import com.github.lol.nikandpro.deserialize.TimePointDeserialize;
+import com.github.lol.nikandpro.model.controller.ActivplayerController;
 import com.github.lol.nikandpro.model.game.Game;
 import com.github.lol.nikandpro.model.game.TimePoint;
 import org.apache.http.HttpEntity;
@@ -33,8 +34,7 @@ public class LiveHandle {
         timePoint = recordTimePoint(json, timePoint);
         timePoint.setGame(game);
         DatabaseConfiguration.timePointDao.create(timePoint);
-
-
+        ActivplayerController.recordActivPlayer(timePoint);
     }
 
     private static TimePoint recordTimePoint(String json, TimePoint timePoint) throws IOException {
@@ -46,7 +46,7 @@ public class LiveHandle {
 
 
 
-    private static String getJsonActiv(String url) throws IOException {
+    public static String getJsonActiv(String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
             HttpGet request = new HttpGet(url);
@@ -132,7 +132,6 @@ public class LiveHandle {
         } finally {
             httpClient.close();
         }
-
     }*/
 
     public static void checkStatusPlayer(String summonerName) {}

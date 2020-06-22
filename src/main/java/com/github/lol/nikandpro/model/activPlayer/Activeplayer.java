@@ -13,7 +13,7 @@ public class Activeplayer {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "championStats")
     private ChampionStats championStats;
     @DatabaseField(columnName = "currentGold")
-    private float currentGold;
+    private double currentGold;
     @DatabaseField(columnName = "level")
     private int level;
     @DatabaseField(columnName = "summonerName")
@@ -45,11 +45,11 @@ public class Activeplayer {
         this.championStats = championStats;
     }
 
-    public float getCurrentGold() {
+    public double getCurrentGold() {
         return currentGold;
     }
 
-    public void setCurrentGold(float currentGold) {
+    public void setCurrentGold(double currentGold) {
         this.currentGold = currentGold;
     }
 

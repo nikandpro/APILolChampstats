@@ -8,24 +8,28 @@ import com.j256.ormlite.table.DatabaseTable;
 public class ChampionStats {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
-    private TimePoint timePoint;
+    //@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
+    //private TimePoint timePoint;
     @DatabaseField(columnName = "abilityPower")
-    private float abilityPower;
+    private double abilityPower;
     @DatabaseField(columnName = "armor")
-    private float armor;
+    private double armor;
     @DatabaseField(columnName = "attackDamage")
-    private float attackDamage;
+    private double attackDamage;
     @DatabaseField(columnName = "maxHealth")
-    private float maxHealth;
+    private double maxHealth;
     @DatabaseField(columnName = "moveSpeed")
-    private float moveSpeed;
+    private double moveSpeed;
 
     public ChampionStats() {}
 
-    public TimePoint getTimePoint() {
+    /*public TimePoint getTimePoint() {
         return timePoint;
     }
+
+    public void setTimePoint(TimePoint timePoint) {
+        this.timePoint = timePoint;
+    }*/
 
     public int getId() {
         return id;
@@ -35,47 +39,43 @@ public class ChampionStats {
         this.id = id;
     }
 
-    public void setTimePoint(TimePoint timePoint) {
-        this.timePoint = timePoint;
-    }
-
-    public float getAbilityPower() {
+    public double getAbilityPower() {
         return abilityPower;
     }
 
-    public void setAbilityPower(float abilityPower) {
+    public void setAbilityPower(double abilityPower) {
         this.abilityPower = abilityPower;
     }
 
-    public float getArmor() {
+    public double getArmor() {
         return armor;
     }
 
-    public void setArmor(float armor) {
+    public void setArmor(double armor) {
         this.armor = armor;
     }
 
-    public float getAttackDamage() {
+    public double getAttackDamage() {
         return attackDamage;
     }
 
-    public void setAttackDamage(float attackDamage) {
+    public void setAttackDamage(double attackDamage) {
         this.attackDamage = attackDamage;
     }
 
-    public float getMaxHealth() {
+    public double getMaxHealth() {
         return maxHealth;
     }
 
-    public void setMaxHealth(float maxHealth) {
+    public void setMaxHealth(double maxHealth) {
         this.maxHealth = maxHealth;
     }
 
-    public float getMoveSpeed() {
+    public double getMoveSpeed() {
         return moveSpeed;
     }
 
-    public void setMoveSpeed(float moveSpeed) {
+    public void setMoveSpeed(double moveSpeed) {
         this.moveSpeed = moveSpeed;
     }
 }

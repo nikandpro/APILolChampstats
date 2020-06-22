@@ -20,6 +20,7 @@ public class Play {
           System.out.println("no");
         }
         System.out.println("yes");
+        Thread.sleep(4000);
         Game game = new Game();
         game = ClientHandle.gameStart(game, givenPlayer);
         while (ClientHandle.checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
@@ -28,6 +29,7 @@ public class Play {
             System.out.println("ok");
             Thread.sleep(2000);
         }
+        System.out.println("what");
 
     }
 

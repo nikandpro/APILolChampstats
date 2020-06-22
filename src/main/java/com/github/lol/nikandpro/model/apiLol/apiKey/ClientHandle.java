@@ -6,6 +6,7 @@ import com.github.lol.nikandpro.Client.Key;
 import com.github.lol.nikandpro.Client.Region;
 import com.github.lol.nikandpro.ObjectMapperFactory;
 import com.github.lol.nikandpro.databaseConfiguration.DatabaseConfiguration;
+import com.github.lol.nikandpro.model.apiLol.liveClient.RequestCONST;
 import com.github.lol.nikandpro.model.game.Game;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -33,9 +34,12 @@ public class ClientHandle {
         return givenPlayer;
     }
 
-    public static Game gameStart(Game game, GivenPlayer givenPlayer) throws IOException, SQLException {
+    public static Game gameStart(Game game, GivenPlayer givenPlayer) throws IOException, SQLException, InterruptedException {
         ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(Game.class);
         System.out.println("gameStart");
+        /*while (!checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
+            Thread.sleep(2000);
+        }*/
         game = obMap.readValue(getJsonClient(ClientCONST.SPECTATOR, givenPlayer, givenPlayer.getId()), Game.class);
         System.out.println("successRecordGameStart");
         DatabaseConfiguration.gameDao.create(game);
@@ -80,6 +84,7 @@ public class ClientHandle {
     public static boolean checkStartGame(String clientConst, GivenPlayer givenPlayer) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
+            System.out.println("checkStartGame");
             HttpGet request = new HttpGet(link(givenPlayer.getRegion(), clientConst, givenPlayer.getId()));
             CloseableHttpResponse response = httpClient.execute(request);
 

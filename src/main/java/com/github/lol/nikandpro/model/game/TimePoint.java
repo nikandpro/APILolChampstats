@@ -12,14 +12,6 @@ public class TimePoint {
     private Game game;
     @DatabaseField(columnName = "gameTime")
     private double gameTime;
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public String gameMode;
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public String mapName;
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public String mapNumber;
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public String mapTerrain;
 
     public TimePoint() {}
 
