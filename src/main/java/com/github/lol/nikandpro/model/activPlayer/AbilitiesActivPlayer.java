@@ -12,7 +12,7 @@ public class AbilitiesActivPlayer {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
-    private Player player;
+    private Activeplayer activeplayer;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "E")
     private E e;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "passive")
@@ -43,12 +43,12 @@ public class AbilitiesActivPlayer {
         this.timePoint = timePoint;
     }
 
-    public Player getPlayer() {
-        return player;
+    public Activeplayer getActiveplayer() {
+        return activeplayer;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setActiveplayer(Activeplayer activeplayer) {
+        this.activeplayer = activeplayer;
     }
 
     public E getE() {

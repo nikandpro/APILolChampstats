@@ -8,8 +8,8 @@ import com.j256.ormlite.table.DatabaseTable;
 public class ChampionStats {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
-    //@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
-    //private TimePoint timePoint;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
+    private TimePoint timePoint;
     @DatabaseField(columnName = "abilityPower")
     private double abilityPower;
     @DatabaseField(columnName = "armor")
@@ -23,13 +23,13 @@ public class ChampionStats {
 
     public ChampionStats() {}
 
-    /*public TimePoint getTimePoint() {
+    public TimePoint getTimePoint() {
         return timePoint;
     }
 
     public void setTimePoint(TimePoint timePoint) {
         this.timePoint = timePoint;
-    }*/
+    }
 
     public int getId() {
         return id;

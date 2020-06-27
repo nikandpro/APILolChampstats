@@ -21,13 +21,15 @@ public class ActivplayerDeserialize extends StdDeserializer<Activeplayer> {
     @Override
     public Activeplayer deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         JsonNode node = parser.getCodec().readTree(parser);
+        JsonNode championStats = node.get("championStats");
+        ChampionStats stats = parser.getCodec().readValue(championStats.traverse(parser.getCodec()), ChampionStats.class);
         Activeplayer activeplayer = new Activeplayer();
         activeplayer.setId(0);
-        activeplayer.setChampionStats(null);
+        activeplayer.setChampionStats(stats);
         activeplayer.setCurrentGold(node.get("currentGold").asDouble());
         activeplayer.setLevel(node.get("level").asInt());
         activeplayer.setSummonerName(node.get("summonerName").asText());
 
-        return null;
+        return activeplayer;
     }
 }

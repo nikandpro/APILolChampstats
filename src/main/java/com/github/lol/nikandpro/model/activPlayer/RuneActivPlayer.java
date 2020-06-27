@@ -1,8 +1,8 @@
 package com.github.lol.nikandpro.model.activPlayer;
 
-import com.github.lol.nikandpro.model.core.rune.Keystone;
-import com.github.lol.nikandpro.model.core.rune.PrimaryRuneTree;
-import com.github.lol.nikandpro.model.core.rune.SecondaryRuneTree;
+import com.github.lol.nikandpro.model.core.rune.Rune;
+//import com.github.lol.nikandpro.model.core.rune.PrimaryRuneTree;
+//import com.github.lol.nikandpro.model.core.rune.SecondaryRuneTree;
 import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -14,11 +14,15 @@ public class RuneActivPlayer {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "keystone")
-    private Keystone keystone;
+    private Rune keystone;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
+    private Rune primaryRuneTree;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
+    private Rune secondaryRuneTree;
+    /*@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
     private PrimaryRuneTree primaryRuneTree;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
-    private SecondaryRuneTree secondaryRuneTree;
+    private SecondaryRuneTree secondaryRuneTree;*/
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
     private Activeplayer activeplayer;
 
@@ -40,27 +44,27 @@ public class RuneActivPlayer {
         this.timePoint = timePoint;
     }
 
-    public Keystone getKeystone() {
+    public Rune getKeystone() {
         return keystone;
     }
 
-    public void setKeystone(Keystone keystone) {
+    public void setKeystone(Rune keystone) {
         this.keystone = keystone;
     }
 
-    public PrimaryRuneTree getPrimaryRuneTree() {
+    public Rune getPrimaryRuneTree() {
         return primaryRuneTree;
     }
 
-    public void setPrimaryRuneTree(PrimaryRuneTree primaryRuneTree) {
+    public void setPrimaryRuneTree(Rune primaryRuneTree) {
         this.primaryRuneTree = primaryRuneTree;
     }
 
-    public SecondaryRuneTree getSecondaryRuneTree() {
+    public Rune getSecondaryRuneTree() {
         return secondaryRuneTree;
     }
 
-    public void setSecondaryRuneTree(SecondaryRuneTree secondaryRuneTree) {
+    public void setSecondaryRuneTree(Rune secondaryRuneTree) {
         this.secondaryRuneTree = secondaryRuneTree;
     }
 

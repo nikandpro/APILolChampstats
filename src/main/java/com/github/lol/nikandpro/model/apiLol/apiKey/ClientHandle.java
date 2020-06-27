@@ -37,9 +37,9 @@ public class ClientHandle {
     public static Game gameStart(Game game, GivenPlayer givenPlayer) throws IOException, SQLException, InterruptedException {
         ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(Game.class);
         System.out.println("gameStart");
-        /*while (!checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
-            Thread.sleep(2000);
-        }*/
+        while (!checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
+            Thread.sleep(1000);
+        }
         game = obMap.readValue(getJsonClient(ClientCONST.SPECTATOR, givenPlayer, givenPlayer.getId()), Game.class);
         System.out.println("successRecordGameStart");
         DatabaseConfiguration.gameDao.create(game);
@@ -61,6 +61,10 @@ public class ClientHandle {
                 System.out.println(response.getStatusLine().getReasonPhrase()); // OK
                 System.out.println(response.getStatusLine().toString());        // HTTP/1.1 200 OK
 
+                if (response.getStatusLine().getStatusCode()==403) {
+                    System.out.println("expired key");
+                    throw new RuntimeException();
+                }
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     String json = EntityUtils.toString(entity);

@@ -23,6 +23,7 @@ public class Play {
         Thread.sleep(4000);
         Game game = new Game();
         game = ClientHandle.gameStart(game, givenPlayer);
+        Thread.sleep(4000);
         while (ClientHandle.checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
             System.out.println("record");
             LiveHandle.recordGame(givenPlayer, game);

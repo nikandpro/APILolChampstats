@@ -1,6 +1,6 @@
 package com.github.lol.nikandpro.model.activPlayer;
 
-import com.github.lol.nikandpro.model.core.rune.Keystone;
+import com.github.lol.nikandpro.model.core.rune.Rune;
 import com.github.lol.nikandpro.model.core.rune.PrimaryRuneTree;
 import com.github.lol.nikandpro.model.core.rune.SecondaryRuneTree;
 import com.github.lol.nikandpro.model.game.TimePoint;
@@ -14,7 +14,7 @@ public class RunePlayer {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "timePoint")
     private TimePoint timePoint;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "keystone")
-    private Keystone keystone;
+    private Rune keystone;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
     private PrimaryRuneTree primaryRuneTree;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
@@ -40,11 +40,11 @@ public class RunePlayer {
         this.timePoint = timePoint;
     }
 
-    public Keystone getKeystone() {
+    public Rune getKeystone() {
         return keystone;
     }
 
-    public void setKeystone(Keystone keystone) {
+    public void setKeystone(Rune keystone) {
         this.keystone = keystone;
     }
 
