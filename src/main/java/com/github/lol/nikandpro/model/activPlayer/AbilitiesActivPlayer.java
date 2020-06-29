@@ -5,7 +5,7 @@ import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "abilities")
+@DatabaseTable(tableName = "abilitiesActPl")
 public class AbilitiesActivPlayer {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;
@@ -14,18 +14,18 @@ public class AbilitiesActivPlayer {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "player")
     private Activeplayer activeplayer;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "E")
-    private E e;
+    private Abilities e;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "Q")
+    private Abilities q;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "R")
+    private Abilities r;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "W")
+    private Abilities w;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "passive")
     private Passive passive;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "Q")
-    private Q q;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "R")
-    private R r;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "W")
-    private W w;
 
-    public AbilitiesActivPlayer() {
-    }
+
+    public AbilitiesActivPlayer() {}
 
     public int getId() {
         return id;
@@ -51,12 +51,36 @@ public class AbilitiesActivPlayer {
         this.activeplayer = activeplayer;
     }
 
-    public E getE() {
+    public Abilities getE() {
         return e;
     }
 
-    public void setE(E e) {
+    public void setE(Abilities e) {
         this.e = e;
+    }
+
+    public Abilities getQ() {
+        return q;
+    }
+
+    public void setQ(Abilities q) {
+        this.q = q;
+    }
+
+    public Abilities getR() {
+        return r;
+    }
+
+    public void setR(Abilities r) {
+        this.r = r;
+    }
+
+    public Abilities getW() {
+        return w;
+    }
+
+    public void setW(Abilities w) {
+        this.w = w;
     }
 
     public Passive getPassive() {
@@ -65,29 +89,5 @@ public class AbilitiesActivPlayer {
 
     public void setPassive(Passive passive) {
         this.passive = passive;
-    }
-
-    public Q getQ() {
-        return q;
-    }
-
-    public void setQ(Q q) {
-        this.q = q;
-    }
-
-    public R getR() {
-        return r;
-    }
-
-    public void setR(R r) {
-        this.r = r;
-    }
-
-    public W getW() {
-        return w;
-    }
-
-    public void setW(W w) {
-        this.w = w;
     }
 }

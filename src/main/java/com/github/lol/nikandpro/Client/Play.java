@@ -20,15 +20,17 @@ public class Play {
           System.out.println("no");
         }
         System.out.println("yes");
-        Thread.sleep(4000);
+        Thread.sleep(10000);
         Game game = new Game();
         game = ClientHandle.gameStart(game, givenPlayer);
         Thread.sleep(4000);
         while (ClientHandle.checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
             System.out.println("record");
-            LiveHandle.recordGame(givenPlayer, game);
-            System.out.println("ok");
-            Thread.sleep(2000);
+            try {
+                LiveHandle.recordGame(givenPlayer, game);
+                System.out.println("ok");
+                Thread.sleep(2000);
+            } catch (Exception e) {}
         }
         System.out.println("what");
 

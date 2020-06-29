@@ -39,7 +39,9 @@ public class ClientHandle {
         System.out.println("gameStart");
         while (!checkStartGame(ClientCONST.SPECTATOR, givenPlayer)) {
             Thread.sleep(1000);
+            System.out.println("wai");
         }
+        System.out.println("ok");
         game = obMap.readValue(getJsonClient(ClientCONST.SPECTATOR, givenPlayer, givenPlayer.getId()), Game.class);
         System.out.println("successRecordGameStart");
         DatabaseConfiguration.gameDao.create(game);

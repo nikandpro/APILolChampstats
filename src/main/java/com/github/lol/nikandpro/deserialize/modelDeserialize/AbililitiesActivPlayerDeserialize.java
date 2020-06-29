@@ -6,10 +6,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.github.lol.nikandpro.model.activPlayer.AbilitiesActivPlayer;
-import com.github.lol.nikandpro.model.activPlayer.Activeplayer;
-import com.github.lol.nikandpro.model.activPlayer.ChampionStats;
-import com.github.lol.nikandpro.model.core.abilities.E;
-import com.github.lol.nikandpro.model.core.abilities.Q;
+import com.github.lol.nikandpro.model.core.abilities.Abilities;
+import com.github.lol.nikandpro.model.core.abilities.Passive;
+import com.github.lol.nikandpro.model.core.rune.Rune;
 
 import java.io.IOException;
 
@@ -22,22 +21,35 @@ public class AbililitiesActivPlayerDeserialize extends StdDeserializer<Abilities
 
     @Override
     public AbilitiesActivPlayer deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        System.out.println("1");
-        AbilitiesActivPlayer abilitiesActivPlayer = new AbilitiesActivPlayer();
+        System.out.println("DeserializeAbilities");
         JsonNode node = parser.getCodec().readTree(parser);
-        JsonNode eE = node.get("E");
-        E e = parser.getCodec().readValue(eE.traverse(parser.getCodec()), E.class);
-        System.out.println("2");
-        //JsonNode qQ = node.get("Q");
-        //Q q = parser.getCodec().readValue(qQ.traverse(parser.getCodec()), Q.class);
+        JsonNode abil;
+        abil = node.get("E");
+        Abilities e = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+
+        abil = node.get("Passive");
+        System.out.println(abil.toString());
+        Passive passive = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Passive.class);
+
+        abil = node.get("Q");
+        Abilities q = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+
+        abil = node.get("R");
+        Abilities r = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+
+        abil = node.get("W");
+        Abilities w = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+
+
+        AbilitiesActivPlayer abilitiesActivPlayer = new AbilitiesActivPlayer();
         abilitiesActivPlayer.setId(0);
         abilitiesActivPlayer.setE(e);
+        abilitiesActivPlayer.setPassive(passive);
+        abilitiesActivPlayer.setQ(q);
+        abilitiesActivPlayer.setR(r);
+        abilitiesActivPlayer.setW(w);
         System.out.println("3");
-        abilitiesActivPlayer.setPassive(null);
         abilitiesActivPlayer.setActiveplayer(null);
-        //abilitiesActivPlayer.setQ(q);
-        abilitiesActivPlayer.setR(null);
-        abilitiesActivPlayer.setW(null);
         abilitiesActivPlayer.setTimePoint(null);
         System.out.println("4");
         return abilitiesActivPlayer;

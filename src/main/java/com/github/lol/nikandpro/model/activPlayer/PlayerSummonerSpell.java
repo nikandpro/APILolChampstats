@@ -16,6 +16,7 @@ public class PlayerSummonerSpell {
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "summonerSpell2")
     private SummonerSpell summonerSpell2;
 
+
     public PlayerSummonerSpell() {}
 
     public int getId() {

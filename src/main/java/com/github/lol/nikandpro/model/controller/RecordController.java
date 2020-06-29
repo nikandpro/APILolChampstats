@@ -3,18 +3,21 @@ package com.github.lol.nikandpro.model.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.lol.nikandpro.ObjectMapperFactory;
 import com.github.lol.nikandpro.databaseConfiguration.DatabaseConfiguration;
-import com.github.lol.nikandpro.model.activPlayer.AbilitiesActivPlayer;
-import com.github.lol.nikandpro.model.activPlayer.Activeplayer;
-import com.github.lol.nikandpro.model.activPlayer.RuneActivPlayer;
+import com.github.lol.nikandpro.model.activPlayer.*;
 import com.github.lol.nikandpro.model.apiLol.liveClient.LiveHandle;
 import com.github.lol.nikandpro.model.apiLol.liveClient.RequestCONST;
 import com.github.lol.nikandpro.model.game.TimePoint;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class RecordController {
-    public static void recordActivPlayer(TimePoint timePoint) throws IOException, SQLException {
+
+    public static void recordAllActivPl(TimePoint timePoint) throws IOException, SQLException {
+        Activeplayer activeplayer = recordActivPlayer(timePoint);
+        recordFullRune(activeplayer);
+        recordAbilActPlayer(activeplayer);
+    }
+    public static Activeplayer recordActivPlayer(TimePoint timePoint) throws IOException, SQLException {
         System.out.println("startActivPlayer");
         String json = LiveHandle.getJsonActiv(RequestCONST.ACTIVE_PLAYER);
         Activeplayer activeplayer;
@@ -24,7 +27,7 @@ public class RecordController {
         activeplayer.getChampionStats().setTimePoint(timePoint);
         DatabaseConfiguration.actPlayerDao.create(activeplayer);
         System.out.println("finishedActivPlayer");
-        recordFullRune(activeplayer);
+        return activeplayer;
     }
 
     public static void recordAbilActPlayer(Activeplayer activeplayer) throws IOException, SQLException {
@@ -34,8 +37,9 @@ public class RecordController {
         ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(AbilitiesActivPlayer.class);
         abilitiesActivPlayer = obMap.readValue(json, AbilitiesActivPlayer.class);
         abilitiesActivPlayer.setActiveplayer(activeplayer);
-        //abilitiesActivPlayer.setTimePoint(activeplayer.getTimePoint());
-        DatabaseConfiguration.abilActPlayerDao.create(abilitiesActivPlayer);
+        abilitiesActivPlayer.setActiveplayer(activeplayer);
+        abilitiesActivPlayer.setTimePoint(activeplayer.getTimePoint());
+        //DatabaseConfiguration.abilActPlayerDao.create(abilitiesActivPlayer);
         System.out.println("finishedAbilActPlayer");
     }
 
@@ -48,7 +52,16 @@ public class RecordController {
         runeActivPlayer.setActiveplayer(activeplayer);
         runeActivPlayer.setTimePoint(activeplayer.getTimePoint());
         DatabaseConfiguration.runeActPlayerDao.create(runeActivPlayer);
-        //DatabaseConfiguration.keystoneDao.create(runeActivPlayer.getKeystone());
         System.out.println("finishedFullRune");
     }
+
+    public static void recordPlayer(Activeplayer activeplayer) throws IOException, SQLException {
+        System.out.println("recordPlayer");
+        String json = LiveHandle.getJsonPlayer(RequestCONST.PLAYER_LIST, activeplayer.getSummonerName());
+        Player player;
+        ObjectMapper obMap = ObjectMapperFactory.createObjectMapper(Player.class);
+        player = obMap.readValue(json, Player.class);
+        System.out.println("finishedPlayer");
+    }
+
 }

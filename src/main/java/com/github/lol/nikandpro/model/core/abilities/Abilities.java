@@ -1,20 +1,32 @@
-package com.github.lol.nikandpro.model.core.rune;
+package com.github.lol.nikandpro.model.core.abilities;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "secondaryRuneTree")
-public class SecondaryRuneTree {
+@DatabaseTable(tableName = "Abilities")
+public class Abilities {
+    @DatabaseField(columnName = "nameAbility")
+    private String nameAb;
+    @DatabaseField(columnName = "abilityLevel")
+    private int abilityLevel;
     @DatabaseField(columnName = "displayName")
     private String displayName;
-    @DatabaseField(id =true, columnName = "id")
-    private int id;
+    @DatabaseField(id = true, columnName = "id_letter_Ability")
+    private String id;
     @DatabaseField(columnName = "rawDescription")
     private String rawDescription;
     @DatabaseField(columnName = "rawDisplayName")
     private String rawDisplayName;
 
-    public SecondaryRuneTree() {}
+    public Abilities() {}
+
+    public int getAbilityLevel() {
+        return abilityLevel;
+    }
+
+    public void setAbilityLevel(int abilityLevel) {
+        this.abilityLevel = abilityLevel;
+    }
 
     public String getDisplayName() {
         return displayName;
@@ -24,11 +36,11 @@ public class SecondaryRuneTree {
         this.displayName = displayName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

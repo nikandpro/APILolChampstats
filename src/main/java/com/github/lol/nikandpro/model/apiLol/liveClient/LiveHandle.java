@@ -32,7 +32,7 @@ public class LiveHandle {
         timePoint = recordTimePoint(json, timePoint);
         timePoint.setGame(game);
         DatabaseConfiguration.timePointDao.create(timePoint);
-        RecordController.recordActivPlayer(timePoint);
+        RecordController.recordAllActivPl(timePoint);
     }
 
     private static TimePoint recordTimePoint(String json, TimePoint timePoint) throws IOException {
@@ -98,7 +98,7 @@ public class LiveHandle {
         }
     }
 
-    /*public static String getJsonPlayer(String url, String summonersName) throws IOException {
+    public static String getJsonPlayer(String url, String summonersName) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
             HttpGet request = new HttpGet(url+summonersName);
@@ -110,11 +110,11 @@ public class LiveHandle {
 
             try {
 
-                // Get HttpResponse Status
+                /* Get HttpResponse Status
                 System.out.println(response.getProtocolVersion());              // HTTP/1.1
                 System.out.println(response.getStatusLine().getStatusCode());   // 200
                 System.out.println(response.getStatusLine().getReasonPhrase()); // OK
-                System.out.println(response.getStatusLine().toString());        // HTTP/1.1 200 OK
+                System.out.println(response.getStatusLine().toString());*/        // HTTP/1.1 200 OK
 
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
@@ -130,7 +130,7 @@ public class LiveHandle {
         } finally {
             httpClient.close();
         }
-    }*/
+    }
 
     public static void checkStatusPlayer(String summonerName) {}
 

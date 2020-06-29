@@ -19,10 +19,6 @@ public class RuneActivPlayer {
     private Rune primaryRuneTree;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
     private Rune secondaryRuneTree;
-    /*@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "primaryRuneTree")
-    private PrimaryRuneTree primaryRuneTree;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "secondaryRuneTree")
-    private SecondaryRuneTree secondaryRuneTree;*/
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "activeplayer")
     private Activeplayer activeplayer;
 
