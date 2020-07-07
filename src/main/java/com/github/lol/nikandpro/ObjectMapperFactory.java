@@ -7,10 +7,7 @@ import com.github.lol.nikandpro.deserialize.GameDeserialize;
 import com.github.lol.nikandpro.deserialize.GivenplayerDeserialize;
 import com.github.lol.nikandpro.deserialize.TimePointDeserialize;
 import com.github.lol.nikandpro.deserialize.modelDeserialize.*;
-import com.github.lol.nikandpro.model.activPlayer.AbilitiesActivPlayer;
-import com.github.lol.nikandpro.model.activPlayer.Activeplayer;
-import com.github.lol.nikandpro.model.activPlayer.ChampionStats;
-import com.github.lol.nikandpro.model.activPlayer.RuneActivPlayer;
+import com.github.lol.nikandpro.model.activPlayer.*;
 import com.github.lol.nikandpro.model.core.abilities.Abilities;
 import com.github.lol.nikandpro.model.core.abilities.Passive;
 import com.github.lol.nikandpro.model.core.rune.Rune;
@@ -42,6 +39,8 @@ public class ObjectMapperFactory {
             sm.addDeserializer(Abilities.class, new AbilDeserialize());
         } else if (Passive.class == nameClass) {
             sm.addDeserializer(Passive.class, new PassiveDeserialize());
+        } else if (Player.class == nameClass) {
+            sm.addDeserializer(Player.class, new PlayerDeserialize());
         }
         return om.registerModule(sm);
     }

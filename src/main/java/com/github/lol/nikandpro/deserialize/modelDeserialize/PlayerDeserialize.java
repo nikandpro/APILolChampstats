@@ -19,10 +19,11 @@ public class PlayerDeserialize extends StdDeserializer<Player> {
     @Override
     public Player deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         JsonNode node = parser.getCodec().readTree(parser);
+        System.out.println("PlayerDeserialize");
         Player player = new Player();
         player.setId(0);
-        player.setLevel(node.get("level").asInt());
         player.setBot(node.get("isBot").asBoolean());
+        player.setLevel(node.get("level").asInt());
         player.setSummonerName(node.get("summonerName").asText());
         player.setChampionName(node.get("championName").asText());
         player.setDead(node.get("isDead").asBoolean());

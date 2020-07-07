@@ -20,6 +20,14 @@ public class Abilities {
 
     public Abilities() {}
 
+    public String getNameAb() {
+        return nameAb;
+    }
+
+    public void setNameAb(String nameAb) {
+        this.nameAb = nameAb;
+    }
+
     public int getAbilityLevel() {
         return abilityLevel;
     }
@@ -59,4 +67,6 @@ public class Abilities {
     public void setRawDisplayName(String rawDisplayName) {
         this.rawDisplayName = rawDisplayName;
     }
+
+
 }

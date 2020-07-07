@@ -26,6 +26,7 @@ public class AbililitiesActivPlayerDeserialize extends StdDeserializer<Abilities
         JsonNode abil;
         abil = node.get("E");
         Abilities e = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+        e.setNameAb("E");
 
         abil = node.get("Passive");
         System.out.println(abil.toString());
@@ -33,13 +34,15 @@ public class AbililitiesActivPlayerDeserialize extends StdDeserializer<Abilities
 
         abil = node.get("Q");
         Abilities q = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+        q.setNameAb("Q");
 
         abil = node.get("R");
         Abilities r = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
+        r.setNameAb("R");
 
         abil = node.get("W");
         Abilities w = parser.getCodec().readValue(abil.traverse(parser.getCodec()), Abilities.class);
-
+        w.setNameAb("W");
 
         AbilitiesActivPlayer abilitiesActivPlayer = new AbilitiesActivPlayer();
         abilitiesActivPlayer.setId(0);

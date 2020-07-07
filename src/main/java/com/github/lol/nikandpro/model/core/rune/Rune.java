@@ -3,8 +3,10 @@ package com.github.lol.nikandpro.model.core.rune;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "keystone")
+@DatabaseTable(tableName = "runes")
 public class Rune {
+    @DatabaseField(columnName = "nameRune")
+    private String nameRune;
     @DatabaseField(columnName = "displayName")
     private String displayName;
     @DatabaseField(id =true, columnName = "id")
@@ -15,6 +17,14 @@ public class Rune {
     private String rawDisplayName;
 
     public Rune() {}
+
+    public String getNameRune() {
+        return nameRune;
+    }
+
+    public void setNameRune(String nameRune) {
+        this.nameRune = nameRune;
+    }
 
     public String getDisplayName() {
         return displayName;

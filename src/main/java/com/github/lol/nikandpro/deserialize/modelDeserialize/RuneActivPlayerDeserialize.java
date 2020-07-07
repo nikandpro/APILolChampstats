@@ -22,12 +22,15 @@ public class RuneActivPlayerDeserialize extends StdDeserializer<RuneActivPlayer>
         JsonNode rune;
         rune = node.get("keystone");
         Rune keystone = parser.getCodec().readValue(rune.traverse(parser.getCodec()), Rune.class);
+        keystone.setNameRune("keystone");
 
         rune = node.get("primaryRuneTree");
         Rune primaRune = parser.getCodec().readValue(rune.traverse(parser.getCodec()), Rune.class);
+        primaRune.setNameRune("primaryRuneTree");
 
         rune = node.get("secondaryRuneTree");
         Rune secondRune = parser.getCodec().readValue(rune.traverse(parser.getCodec()), Rune.class);
+        secondRune.setNameRune("secondaryRuneTree");
 
         RuneActivPlayer runeActivPlayer = new RuneActivPlayer();
         runeActivPlayer.setId(0);

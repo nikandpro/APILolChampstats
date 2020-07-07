@@ -3,6 +3,7 @@ package com.github.lol.nikandpro.Client;
 import com.github.lol.nikandpro.model.apiLol.apiKey.ClientCONST;
 import com.github.lol.nikandpro.model.apiLol.apiKey.ClientHandle;
 import com.github.lol.nikandpro.model.apiLol.liveClient.LiveHandle;
+import com.github.lol.nikandpro.model.controller.LogController;
 import com.github.lol.nikandpro.model.game.Game;
 
 import java.io.IOException;
@@ -30,9 +31,12 @@ public class Play {
                 LiveHandle.recordGame(givenPlayer, game);
                 System.out.println("ok");
                 Thread.sleep(2000);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("what");
+        LogController.showStats(game, givenPlayer);
 
     }
 

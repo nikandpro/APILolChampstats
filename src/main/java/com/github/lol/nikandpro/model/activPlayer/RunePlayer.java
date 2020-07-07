@@ -5,7 +5,7 @@ import com.github.lol.nikandpro.model.game.TimePoint;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "runes")
+@DatabaseTable(tableName = "runesPlayer")
 public class RunePlayer {
     @DatabaseField(generatedId = true, columnName = "id")
     private int id;

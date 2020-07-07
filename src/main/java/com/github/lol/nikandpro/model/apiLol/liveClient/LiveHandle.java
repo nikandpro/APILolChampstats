@@ -101,6 +101,7 @@ public class LiveHandle {
     public static String getJsonPlayer(String url, String summonersName) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
+            System.out.println(url+summonersName);
             HttpGet request = new HttpGet(url+summonersName);
             //add request headers
             //request.addHeader("custom-key", "mkyong");
